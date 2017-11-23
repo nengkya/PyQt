@@ -11,5 +11,9 @@ class OtherForm(QWidget):
         self.setWindowTitle('Form Lain')
 
         self.button = QPushButton('Tutup')
-        self.button 
-    
+        self.button.setParent(self)
+        self.button.move(50, 50)
+        self.button.clicked.connect(self.buttonClick)
+
+    def buttonClick(self):
+        self.close()
