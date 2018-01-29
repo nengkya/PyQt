@@ -13,7 +13,7 @@ class MainForm(QWidget):
         self.label1    = QLabel('Nama')
         self.lineEdit1 = QLineEdit()
 
-        self.label2    = QLabel('Nama')
+        self.label2    = QLabel('No. Handphone')
         self.lineEdit2 = QLineEdit()
 
         self.button1   = QPushButton('OK')
@@ -27,3 +27,9 @@ class MainForm(QWidget):
         self.layout.addWidget(self.button1,   2, 0, 1, 2)
 
         self.setLayout(self.layout)
+
+        '''
+        self.layout makes a layout inside class and store there,
+        so when you call your class.layout, it returs that layout.
+        Without self, it will be forgotten as soon as program leaves the scope.
+        '''
