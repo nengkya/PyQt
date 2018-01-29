@@ -11,9 +11,9 @@ class TextForm(QWidget):
         self.setWindowTitle('Demo Tag HTML')
 
         #QLabel untuk menampilkan text
-        self.label1 = QLabel('<h1> Hello <font color = red> PyQt </font> </h1>')
-        self.label1.move(10, 10)
-        self.label1.setParent(self)
+        label1 = QLabel('<h1> Hello <font color = red> PyQt </font> </h1>')
+        label1.move(10, 10)
+        label1.setParent(self)
 
         self.label2 = QLabel('Teks ini dibuat dengan tag HTML.' +
                              'Teks dapat dijadikan <i> miring </i>, dan <u> bergaris bawah </u>')
