@@ -17,26 +17,17 @@ class EntryForm(QDialog):
         hbox.addWidget(self.cancelButton)
 
         self.label1 = QLabel('Nama Lengkap :')
-        nameLineEdit  = QLineEdit()
+        self.nameLineEdit  = QLineEdit()
         self.label2 = QLabel('NOmor HP :')
-        phoneLineEdit = QLineEdit()
+        self.phoneLineEdit = QLineEdit()
         layout = QGridLayout()
         layout.addWidget(self.label1, 0, 0)
-        layout.addWidget(nameLineEdit,  0, 1)
+        layout.addWidget(self.nameLineEdit,  0, 1)
         layout.addWidget(self.label2, 1, 0)
-        layout.addWidget(phoneLineEdit, 1, 1)
+        layout.addWidget(self.phoneLineEdit, 1, 1)
         
         layout.addLayout(hbox, 2, 1)
         self.setLayout(layout)
         
         self.okButton.clicked.connect(self.accept)
         self.cancelButton.clicked.connect(self.reject)
-
-import sys
-from PyQt5.QtWidgets import QApplication
-
-if __name__ == '__main__':
-    a = QApplication(sys.argv)
-    form = EntryForm()
-    form.show()
-    a.exec()
