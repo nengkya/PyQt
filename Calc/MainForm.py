@@ -78,6 +78,13 @@ class MainForm(QWidget):
         _8Button.clicked.connect(lambda: self.writeDigit(8))
         _9Button.clicked.connect(lambda: self.writeDigit(9))
         mulButton.clicked.connect(lambda: self.writeOperator('*'))
+        divButton.clicked.connect(lambda: self.writeOperator('/'))
+        plusButton.clicked.connect(lambda: self.writeOperator('+'))
+        minusButton.clicked.connect(lambda: self.writeOperator('-'))
+        dotButton.clicked.connect(self.writePoint)
+        clearButton.clicked.connect(self.lineEdit.clear)
+        calculateButton.clicked.connect(self.calculateButton)
+        percentageButton.clicked.connect(self.percentageButton)
 
     def writeDigit(self, digit):
         if digit in range(0, 10):
@@ -86,8 +93,33 @@ class MainForm(QWidget):
     def writeOperator(self, operator):
         if len(self.lineEdit.text()) == 0:
             return
-        if operator in ['+', '/', '+', '-']:
+        if operator in ['*', '/', '+', '-']:
             if self.lineEdit.text()[-1] in ['*', '/', '+', '-']:
                 self.lineEdit.text()[:-1] + operator
             else:
                 self.lineEdit.setText(self.lineEdit.text() + operator)
+
+    def writePoint(self):
+        if len(self.lineEdit.text()) == 0 or self.lineEdit.text()[-1] == '.':
+            return
+        self.lineEdit.setText(self.lineEdit.text() + '.')
+
+    def calculateButton(self):
+        expression = self.lineEdit.text()
+        if len(expression) ==  0:
+            return
+        try:
+            result = eval(expression)
+            self.lineEdit.setText(str(result)) #Kalo ga str = 'ERROR'. QLineEdit cuma terima string, bukan integer.
+        except:
+            self.lineEdit.setText('ERROR')
+
+    def percentageButton(self):
+        expression = self.lineEdit.text()
+        if len(expression) == 0:
+            return
+        try:
+            result = eval(expression) / 100
+            self.lineEdit.setText(str(result))
+        except:
+            self.lineEdit.setText('ERROR')
