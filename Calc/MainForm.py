@@ -15,10 +15,10 @@ class MainForm(QWidget):
         self.move(300, 300)
         self.setWindowTitle('Kalkulator')
 
-        lineEdit = QLineEdit()
-        lineEdit.setAlignment(Qt.AlignRight)
-        lineEdit.setFont(QFont('SansSerif', 14))
-        lineEdit.setDisabled(True)
+        self.lineEdit = QLineEdit()
+        self.lineEdit.setAlignment(Qt.AlignRight)
+        self.lineEdit.setFont(QFont('SansSerif', 14))
+        self.lineEdit.setDisabled(True)
 
         _0Button = QPushButton('0')
         _1Button = QPushButton('1')
@@ -30,7 +30,8 @@ class MainForm(QWidget):
         _7Button = QPushButton('7')
         _8Button = QPushButton('8')
         _9Button = QPushButton('9')
-        
+
+        divButton        = QPushButton('/')        
         clearButton      = QPushButton('CLR')
         mulButton        = QPushButton('x')
         minusButton      = QPushButton('-')
@@ -40,9 +41,53 @@ class MainForm(QWidget):
         calculateButton  = QPushButton('=')
         
         layout = QGridLayout()
-        layout.addWidget(lineEdit,    0, 0, 1, 4)
+        layout.addWidget(self.lineEdit,    0, 0, 1, 4)
         layout.addWidget(_7Button,    1, 0)
         layout.addWidget(_8Button,    1, 1)
         layout.addWidget(_9Button,    1, 2)
         layout.addWidget(clearButton, 1, 3)
+
+        layout.addWidget(_4Button,  2, 0)
+        layout.addWidget(_5Button,  2, 1)
+        layout.addWidget(_6Button,  2, 2)
+        layout.addWidget(mulButton, 2, 3)
+        
+        layout.addWidget(_1Button,  3, 0)
+        layout.addWidget(_2Button,  3, 1)
+        layout.addWidget(_3Button,  3, 2)
+        layout.addWidget(divButton, 3, 3)
+
+        layout.addWidget(_0Button,    4, 0)
+        layout.addWidget(dotButton,   4, 1)
+        layout.addWidget(minusButton, 4, 2)
+        layout.addWidget(plusButton,  4, 3)
+
+        layout.addWidget(percentageButton, 5, 0)
+        layout.addWidget(calculateButton,  5, 1, 1, 3)
+
         self.setLayout(layout)
+
+        _0Button.clicked.connect(lambda: self.writeDigit(0))
+        _1Button.clicked.connect(lambda: self.writeDigit(1))
+        _2Button.clicked.connect(lambda: self.writeDigit(2))
+        _3Button.clicked.connect(lambda: self.writeDigit(3))
+        _4Button.clicked.connect(lambda: self.writeDigit(4))
+        _5Button.clicked.connect(lambda: self.writeDigit(5))
+        _6Button.clicked.connect(lambda: self.writeDigit(6))
+        _7Button.clicked.connect(lambda: self.writeDigit(7))
+        _8Button.clicked.connect(lambda: self.writeDigit(8))
+        _9Button.clicked.connect(lambda: self.writeDigit(9))
+        mulButton.clicked.connect(lambda: self.writeOperator('*'))
+
+    def writeDigit(self, digit):
+        if digit in range(0, 10):
+            self.lineEdit.setText(self.lineEdit.text() + str(digit))
+
+    def writeOperator(self, operator):
+        if len(self.lineEdit.text()) == 0:
+            return
+        if operator in ['+', '/', '+', '-']:
+            if self.lineEdit.text()[-1] in ['*', '/', '+', '-']:
+                self.lineEdit.text()[:-1] + operator
+            else:
+                self.lineEdit.setText(self.lineEdit.text() + operator)
