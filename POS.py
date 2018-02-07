@@ -13,31 +13,38 @@ if password == 'kyakyakya':
     print('1. Pembelian')
     print('2. Penjualan')
 
-    jenisTransaksi = input('Jenis transaksi : ')
-    print()
+    jc = 0
+    jenisTransaksi = '1'
+    
+    while jenisTransaksi in ['1', '2']:
+        jenisTransaksi = input('Jenis transaksi : ')
+        print()
 
-    if jenisTransaksi == '1':
-        print('Pembelian')
-        print('==================')
-        kodeBarang = input('Kode barang : ')
-
-        if kodeBarang == '1':
-            print('Djarum Coklat')
-            jc = int(input('Jumlah : '))
-            harga = int(input('Harga satuan : '))
-            print('Total harga pembelian :',  locale.currency(jc * harga, grouping = True ))
-
-            print()
-            print('Stok DJarum Coklat')
+        if jenisTransaksi == '1':
+            print('Pembelian')
             print('==================')
-            print('Jumlah barang : ', jc)
-            print('Nilai stok    : ', jc * harga)
+            kodeBarang = input('Kode barang   : ')
 
-    if jenisTransaksi == '2':
-        print('Penjualan')
-        print('==================')
-        kodeBarang = input('Kode barang : ')
+            if kodeBarang == '1':
+                print('Nama barang   : Djarum Coklat')
+                jc = int(input('Jumlah barang : '))
+                harga = int(input('Harga satuan  : '))
+                print('Total harga pembelian :',  locale.currency(jc * harga, grouping = True ))
 
-        if kodeBarang == '1':
-            print('Djarum Coklat')
-            jc = int(input('Jumlah : '))
+                print()
+                print('Stok DJarum Coklat')
+                print('==================')
+                print('Jumlah barang : ', jc)
+                print('Nilai stok    : ', jc * harga)
+
+        if jenisTransaksi == '2':
+            print('Penjualan')
+            print('==================')
+            kodeBarang = input('Kode barang : ')
+
+            if kodeBarang == '1':
+                print('Djarum Coklat')
+                if jc != 0:
+                    jc = int(input('Jumlah : '))
+                else:
+                    print('Stok kosong !')
