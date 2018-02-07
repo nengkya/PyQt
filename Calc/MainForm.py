@@ -95,7 +95,7 @@ class MainForm(QWidget):
             return
         if operator in ['*', '/', '+', '-']:
             if self.lineEdit.text()[-1] in ['*', '/', '+', '-']:
-                self.lineEdit.text()[:-1] + operator
+                self.lineEdit.setText(self.lineEdit.text()[:-1] + operator)
             else:
                 self.lineEdit.setText(self.lineEdit.text() + operator)
 
