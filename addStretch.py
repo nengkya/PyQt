@@ -99,3 +99,5 @@ if __name__ == '__main__':
 
     form = MainForm()
     form.show()
+
+    a.exec() #Harus ada di Linux, Windows tidak perlu
