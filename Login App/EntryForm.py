@@ -34,13 +34,6 @@ class EntryForm(QDialog):
         okButton.clicked.connect(self.accept)
         cancelButton.clicked.connect(self.reject)
 
-if __name__ == '__main__':
-    a = QApplication(sys.argv)
-
-    login = EntryForm()
-    login.exec()
-
-    #form = MainForm()
-    #form.show()
-
-    a.exec_()
+    if exec() == QDialog.Accepted: 
+        form = MainForm()
+        form.show()

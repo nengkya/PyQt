@@ -1,12 +1,14 @@
 import sys
 from PyQt5.QtWidgets import QApplication
 
+from EntryForm import *
 from MainForm import *
 
 if __name__ == '__main__':
     a = QApplication(sys.argv)
 
-    form = MainForm()
-    form.show()
+    Log = EntryForm()
+    Log.show()
 
-    a.exec_()
+    a.exec()
+    
