@@ -1,6 +1,6 @@
 import sys
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
+#from PyQt5.QtGui import *
+#from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
 
@@ -77,8 +77,8 @@ class MainForm(QWidget):
                 index = self.resultLabel.text().index(':')
                 s = str(self.resultLabel.text()[:index + 1])
                #self.resultLabel.setText('%s %.2f %s' % (s, c, '</b>')) #biar angka hasil bold
-               #self.resultLabel.setText('%s %.2f %s' % (self.resultLabel.text(), c, '</b>')) tidak bold
-                self.resultLabel.setText(self.resultLabel.text() + '<b>' + str(c) + '</b>') #unlimited fraction
+                self.resultLabel.setText('%s %f %s' % (s, c, '</b>')) #biar angka hasil bold
+               
             except:
                 self.resultLabel.setText('Harus angka !')
             

@@ -1,7 +1,7 @@
 import sys, os
 
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
+#from PyQt5.QtGui import *
+#from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
 
@@ -23,12 +23,13 @@ class MainForm(QWidget):
        #vbox3.addWidget(vbox2) error
         vbox3.addLayout(vbox2)
 
-        self.exeButton    = QPushButton('&Execute')
-        self.cancelButton = QPushButton('&Batal')
+        self.exeButton = QPushButton('&Execute')
+        cancelButton   = QPushButton('&Batal')
         hbox = QHBoxLayout()
-        hbox.addStretch() #Tombol Kirim dan Batal mengecil
+        hbox.addStretch() #dorong button ke kanan
         hbox.addWidget(self.exeButton)
-        hbox.addWidget(self.cancelButton)
+        hbox.addWidget(cancelButton)
+        hbox.addStretch() #dorong button ke kanan
 
         layout = QVBoxLayout()
         layout.addLayout(vbox3)
@@ -36,13 +37,13 @@ class MainForm(QWidget):
         self.setLayout(layout)
 
         self.exeButton.clicked.connect(self.exe)
+        cancelButton.clicked.connect(self.close)
 
     def exe(self):
         fo = open("HasnaPyEditor.py", "w")
         mytext = self.scriptEdit.toPlainText()
         fo.write(mytext)
         os.system('python3 HasnaPyEditor.py')
-
 
 a = QApplication(sys.argv)
 

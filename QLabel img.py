@@ -1,9 +1,7 @@
 import sys
-
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
+#from PyQt5.QtGui import *
+#from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
-
 
 class MainForm(QWidget):
     def __init__(self):
@@ -26,7 +24,6 @@ class MainForm(QWidget):
         layout.addWidget(self.label2)
 
         self.setLayout(layout)
-
 
 if __name__ == '__main__':
     a = QApplication(sys.argv)
