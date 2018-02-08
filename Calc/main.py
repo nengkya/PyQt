@@ -9,4 +9,4 @@ if __name__ == '__main__':
     form = MainForm()
     form.show()
 
-   #a.exec()
+    a.exec() #OS Windows tidak perlu. Linux perlu

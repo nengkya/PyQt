@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QWidget, QGridLayout, QLineEdit, QPushButton
 
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt #perlu untuk Qt.AlignRight pada line 19
 
 from PyQt5.QtGui import QFont
 
