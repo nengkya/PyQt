@@ -9,4 +9,5 @@ if __name__ == '__main__':
     form = MainForm()
     form.show()
 
-    a.exec() #OS Windows tidak perlu. Linux perlu
+   #a.exec() gagal pyinstaller
+    a.exec_() #OS Windows tidak perlu. Linux perlu

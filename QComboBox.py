@@ -1,8 +1,4 @@
 import sys
-#import PyQt5
-#from PyQt5.QtGui import *
-#from PyQt5.QtCore import *
-#from PyQt5.QtWidgets import *
 from PyQt5 import QtWidgets
 
 class MainForm(QtWidgets.QWidget):
@@ -26,7 +22,7 @@ class MainForm(QtWidgets.QWidget):
         layout = QtWidgets.QVBoxLayout()
         layout.addWidget(self.combo)
         layout.addWidget(getTextButton)
-        layout.addStretch() #merapatkan combo n button, dorong ke atas
+        layout.addStretch() #merapatkan combo dan button, dorong ke atas
         self.setLayout(layout)
 
         getTextButton.clicked.connect(self.getText)
@@ -34,11 +30,9 @@ class MainForm(QtWidgets.QWidget):
     def getText(self):
         QtWidgets.QMessageBox.information(self, 'Informasi', 'Anda memilih ' + self.combo.currentText())
 
-#a = PyQt5.QtWidgets.QApplication(sys.argv)
-#a = QApplication(sys.argv)
 a = QtWidgets.QApplication(sys.argv)
 
 form = MainForm()
 form.show()
 
-a.exec()
+a.exec_()

@@ -14,6 +14,8 @@ class MainForm(QtWidgets.QWidget):
         fontLabel  = QtWidgets.QLabel()
         fontLabel.setText('Jenis huruf')
 
+        self.fontCombo = QtWidgets.QFontComboBox()
+
         layout = QtWidgets.QGridLayout()
         layout.addWidget(fontLabel)
         self.setLayout(layout)

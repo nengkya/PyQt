@@ -12,7 +12,7 @@ class MainForm(QtWidgets.QWidget):
         self.move(300, 300)
         self.setWindowTitle('Demo QFontComboBox')
 
-        self.fontCombo = QtWidgets.QFontComboBox()
+        self.fontCombo = QtWidgets.QFontComboBox() #class turunan ComboBox menampilkan daftar font melalui Combo Box
         self.fontCombo.setEditable(False) #agar text combo tidak bisa diganti
 
         self.label = QtWidgets.QLabel()
@@ -32,4 +32,4 @@ class MainForm(QtWidgets.QWidget):
 a = QtWidgets.QApplication(sys.argv)
 form = MainForm()
 form.show()
-a.exec()
+a.exec_()

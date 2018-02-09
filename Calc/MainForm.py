@@ -4,6 +4,8 @@ from PyQt5.QtGui import QFont
 
 class MainForm(QWidget):
     def __init__(self):
+       #super(MainForm, self).__init__() #harus full path class object untuk python3 -m PyInstaller
+                                         #kata Pak Eko Puji Widiyanto
         super().__init__()
         self.setupUi()
 
